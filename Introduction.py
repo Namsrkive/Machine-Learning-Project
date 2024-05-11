@@ -12,9 +12,9 @@ st.write("Restaurant Rating has become the most commonly used parameter for judg
 
 col1,col2=st.columns(2)
 with col1:
-    st.write("[Github Link](https://github.com/sudhanshu2198/End-to-End-Restaurant-Rating-Prediction)")
+    st.write("[Github Link](https://github.com/Namsrkive/Machine-Learning-Project.git)")
 with col2:
-    st.write("[Kaggle Link](https://www.kaggle.com/code/sudhanshu2198/restaurant-rating-prediction-app/notebook)")
+    st.write("[Kaggle Link](https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants)")
 
 file_dir=os.path.dirname(os.path.abspath(__file__))
 dir_of_interest = os.path.join(file_dir, "resources")

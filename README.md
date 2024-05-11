@@ -8,12 +8,12 @@ Zomato is one of the best online food delivery apps which gives the users the ra
 2. Build an appropriate Machine Learning Model that will help various Zomato Restaurants to predict their respective Ratings based on certain features
 
 ## Feature description
-url: contains the url of the restaurant in the zomato website
-address: contains the address of the restaurant in Bengaluru
-name: contains the name of the restaurant
-online_order: whether online ordering is available in the restaurant or not
-book_table: table book option available or not
-rate: contains the overall rating of the restaurant out of 5
+1. url: contains the url of the restaurant in the zomato website
+2. address: contains the address of the restaurant in Bengaluru
+3. name: contains the name of the restaurant
+4. online_order: whether online ordering is available in the restaurant or not
+5. book_table: table book option available or not
+6. rate: contains the overall rating of the restaurant out of 5
 votes: contains total number of rating for the restaurant as of the above mentioned date
 phone: contains the phone number of the restaurant
 location: contains the neighborhood in which the restaurant is located

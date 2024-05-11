@@ -1,10 +1,33 @@
+# Restaurant Rating Prediction 
 
+## ABSTRACT
+Zomato is one of the best online food delivery apps which gives the users the ratings and the reviews on restaurants all over India.These ratings and the Reviews are considered as one of the most important deciding factors which determine how good a restaurant is. We will therefore use the real time Dataset with variuos features a user would look into regarding a restaurant. We will be considering Banglore City in this analysis.
 
-# Restaurant Rating Prediction App
+**The main agenda of this project is:**
+1. Perform extensive Exploratory Data Analysis(EDA) on the Zomato Dataset.
+2. Build an appropriate Machine Learning Model that will help various Zomato Restaurants to predict their respective Ratings based on certain features
 
-Restaurant Rating has become the most commonly used parameter for judging a restaurant for any individual.Rating of a restaurant depends on factors like reviews, area situated, average cost for two people, votes, cuisines and the type of restaurant.
+## Feature description
+url: contains the url of the restaurant in the zomato website
+address: contains the address of the restaurant in Bengaluru
+name: contains the name of the restaurant
+online_order: whether online ordering is available in the restaurant or not
+book_table: table book option available or not
+rate: contains the overall rating of the restaurant out of 5
+votes: contains total number of rating for the restaurant as of the above mentioned date
+phone: contains the phone number of the restaurant
+location: contains the neighborhood in which the restaurant is located
+rest_type: restaurant type
+dish_liked: dishes people liked in the restaurant
+cuisines: food styles, separated by comma
+approx_cost(for two people): contains the approximate cost of meal for two people
+reviews_list: list of tuples containing reviews for the restaurant, each tuple
+menu_item: contains list of menus available in the restaurant
+listed_in(type): type of meal
+listed_in(city): contains the neighborhood in which the restaurant is listed
 
-**The main goal of this is to get insights on restaurants which people like visit and to identify the rating of the restaurant.**
+**Restaurant Rating has become the most commonly used parameter for judging a restaurant for any individual. Rating of a restaurant depends on factors like reviews, area situated, average cost for two people, votes, cuisines and the type of restaurant.**
+
 
 ## 🔗 Links
 

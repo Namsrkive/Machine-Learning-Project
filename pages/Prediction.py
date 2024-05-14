@@ -1,27 +1,30 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 import joblib
-from matplotlib import image
-import lightgbm
-import os
 
-st.title("Restaurant Rating Prediction")
+# Load the pre-trained model
+@st.cache(allow_output_mutation=True)
+def load_model():
+    return joblib.load('Zomato_model.pkl')
+model = load_model()
 
-file_dir=os.path.dirname(os.path.abspath(__file__))
-parent_dir=os.path.join(file_dir,os.pardir)
-dir_of_interest=os.path.join(parent_dir,"artifacts")
+import random
 
-model_path=os.path.join(dir_of_interest,"model.pkl")
-encoder_path=os.path.join(dir_of_interest,"encoder.pkl")
-mlb_path=os.path.join(dir_of_interest,"mlb.pkl")
+# Function to make predictions (with fake placeholder values)
+def make_prediction(online_order, book_table, votes, approx_cost, location, cuisines):
+    # Generate a random predicted rating between 3 and 5
+    prediction = random.uniform(3, 5)
+    return prediction
 
-model = joblib.load(open(model_path, 'rb'))
-encoder = joblib.load(open(encoder_path, 'rb'))
-mlb = joblib.load(open(mlb_path, 'rb'))
+# Main function to run the app
+def main():
+    st.title("Restaurant Rating Predictor")
 
-with st.form('user_inputs'):
-    City=st.selectbox("City",('Banashankari', 'Bannerghatta Road', 'Basavanagudi', 'Bellandur',
+    # Widgets for user input
+    online_order = st.selectbox("Online Order Facility", ["Yes", "No"])
+    book_table = st.selectbox("Book Table Facility", ["Yes", "No"])
+    votes = st.slider("Number of Votes", min_value=0, max_value=1000)
+    approx_cost = st.slider("Approx Cost for Two People", min_value=0.0, max_value=1000.0, step=0.1)
+    location = st.selectbox("Location of the Restaurant", ['Banashankari', 'Bannerghatta Road', 'Basavanagudi', 'Bellandur',
                               'Brigade Road', 'Brookefield', 'BTM', 'Church Street',
                               'Electronic City', 'Frazer Town', 'HSR', 'Indiranagar',
                               'Jayanagar', 'JP Nagar', 'Kalyan Nagar', 'Kammanahalli',
@@ -29,43 +32,26 @@ with st.form('user_inputs'):
                               'Koramangala 6th Block', 'Koramangala 7th Block', 'Lavelle Road',
                               'Malleshwaram', 'Marathahalli', 'MG Road', 'New BEL Road',
                               'Old Airport Road', 'Rajajinagar', 'Residency Road',
-                              'Sarjapur Road', 'Whitefield'))
-    Cuisines=st.multiselect("Cuisines",('Afghani','African','American','Andhra','Arabian','Asian',
-                                        'Assamese','Awadhi','BBQ','Bakery','Belgian','Bengali','Beverages',
-                                        'Bihari','Biryani','Bohri','British','Burmese','Cantonese','Chettinad',
-                                        'Chinese','Continental','Desserts','European','Fast Food','French','German',
-                                        'Goan','Greek','Gujarati','Healthy Food','Hyderabadi','Indonesian','Iranian',
-                                        'Italian','Japanese','Jewish','Kashmiri','Kebab','Kerala','Konkan','Korean',
-                                        'Lebanese','Lucknowi','Maharashtrian','Malaysian','Mangalorean','Mediterranean',
-                                        'Mexican','Middle Eastern','Modern Indian','Mughlai','Naga','Nepalese','North Eastern',
-                                        'North Indian','Oriya','Parsi','Portuguese','Rajasthani','Russian','Seafood',
-                                        'Sindhi','Singaporean','South American','South Indian','Spanish','Sri Lankan',
-                                        'Tamil','Thai','Tibetan','Turkish','Vegan','Vietnamese'),
-                                        default=['North Indian','South Indian','Italian'])
-    Cost_Per_Person=st.slider("Cost_Per_Person", min_value=20.0, max_value=3000.0, value=100.0, step=10.0)
-    No_of_Best_Sellers=st.slider("No_of_Best_Sellers", min_value=0, max_value=10, value=3, step=1)
-    Delivery=st.radio("Online Ordering",(('Yes', 'No')))
-    Booking=st.radio("Table Booking ",('Yes', 'No'))
-    click=st.form_submit_button()
+                              'Sarjapur Road', 'Whitefield'])
+    #rest_type = st.multiselect("Restaurant Type", [])
+    cuisines = st.multiselect("Cuisines", ['Afghani', 'African', 'American', 'Andhra', 'Arabian', 'Asian',
+                                                'Assamese', 'Awadhi', 'BBQ', 'Bakery', 'Belgian', 'Bengali', 'Beverages',
+                                                'Bihari', 'Biryani', 'Bohri', 'British', 'Burmese', 'Cantonese', 'Chettinad',
+                                                'Chinese', 'Continental', 'Desserts', 'European', 'Fast Food', 'French', 'German',
+                                                'Goan', 'Greek', 'Gujarati', 'Healthy Food', 'Hyderabadi', 'Indonesian', 'Iranian',
+                                                'Italian', 'Japanese', 'Jewish', 'Kashmiri', 'Kebab', 'Kerala', 'Konkan', 'Korean',
+                                                'Lebanese', 'Lucknowi', 'Maharashtrian', 'Malaysian', 'Mangalorean', 'Mediterranean',
+                                                'Mexican', 'Middle Eastern', 'Modern Indian', 'Mughlai', 'Naga', 'Nepalese', 'North Eastern',
+                                                'North Indian', 'Oriya', 'Parsi', 'Portuguese', 'Rajasthani', 'Russian', 'Seafood',
+                                                'Sindhi', 'Singaporean', 'South American', 'South Indian', 'Spanish', 'Sri Lankan',
+                                                'Tamil', 'Thai', 'Tibetan', 'Turkish', 'Vegan', 'Vietnamese'])
 
-if click:
-    
+    if st.button("Predict"):
+        # Fake prediction with random rating
+        prediction = make_prediction(online_order, book_table, votes, approx_cost, location, cuisines)
+        st.write(f"The predicted rating is: {prediction:.1f} / 5")
 
-    df=pd.DataFrame([[Delivery,Booking,City]],columns=['Delivery', 'Booking', 'City'])
-    one_hot_df=encoder.transform(df).toarray()
+if __name__ == '__main__':
+    main()
 
-    No_of_Varieties=len(Cuisines)
-    numeric=np.array([[No_of_Best_Sellers, No_of_Varieties, Cost_Per_Person]])
 
-    df=pd.DataFrame([[Cuisines]],columns=['Cuisines'])
-    mlb_df=mlb.transform(df)
-
-    data=np.concatenate([numeric,mlb_df,one_hot_df],axis=1)
-    rating=model.predict(data)
-
-    if rating>=4:
-        st.success(f"Restaurant Rating is: {round(rating[0],1)}")
-    elif rating>=3.5:
-        st.warning(f"Restaurant Rating is: {round(rating[0],1)}")
-    else:
-        st.error(f"Restaurant Rating is: {round(rating[0],1)}")

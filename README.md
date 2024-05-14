@@ -41,10 +41,6 @@ Python, Pandas, Numpy, Matplotlib, Scikit-learn, Streamlit, Git
 ## Directory Tree
 ```bash
 
-├── artifacts
-│   ├── encoder.pkl
-│   │── mlb.pkl
-│   └── model.pkl 
 ├── pages
 │   ├── Prediction.py
 │   └── Visualization.py
@@ -54,6 +50,7 @@ Python, Pandas, Numpy, Matplotlib, Scikit-learn, Streamlit, Git
 │    
 ├── Introduction.py
 ├── README.md
+├── model.pkl
 ├── restaurant model.ipynb
 └── requirements.txt
 ```

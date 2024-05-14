@@ -4,7 +4,7 @@ import joblib
 # Load the pre-trained model
 @st.cache(allow_output_mutation=True)
 def load_model():
-    return joblib.load('Zomato_model.pkl')
+    return joblib.load('model.pkl')
 model = load_model()
 
 import random

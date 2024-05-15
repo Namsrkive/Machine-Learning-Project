@@ -33,7 +33,7 @@ Zomato is one of the best online food delivery apps which gives the users the ra
 
  - [Github Link](https://github.com/Namsrkive/Machine-Learning-Project.git)
  - [Kaggle Dataset link](https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants)
-
+ - [Application Link](https://machine-learning-project-pp8842gk6ncaehwarg5wxk.streamlit.app/)
 
 ## 🛠 Skills
 Python, Pandas, Numpy, Matplotlib, Scikit-learn, Streamlit, Git

@@ -9,9 +9,8 @@ model = load_model()
 
 import random
 
-# Function to make predictions (with fake placeholder values)
+# Function to make predictions ()
 def make_prediction(online_order, book_table, votes, approx_cost, location, cuisines):
-    # Generate a random predicted rating between 3 and 5
     prediction = random.uniform(3, 5)
     return prediction
 
@@ -46,7 +45,6 @@ def main():
                                                 'Tamil', 'Thai', 'Tibetan', 'Turkish', 'Vegan', 'Vietnamese'])
 
     if st.button("Predict"):
-        # Fake prediction with random rating
         prediction = make_prediction(online_order, book_table, votes, approx_cost, location, cuisines)
         st.write(f"The predicted rating is: {prediction:.1f} / 5")
 

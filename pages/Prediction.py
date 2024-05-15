@@ -23,7 +23,7 @@ def main():
     online_order = st.selectbox("Online Order Facility", ["Yes", "No"])
     book_table = st.selectbox("Book Table Facility", ["Yes", "No"])
     votes = st.slider("Number of Votes", min_value=0, max_value=1000)
-    approx_cost = st.slider("Approx Cost for Two People", min_value=0.0, max_value=1000.0, step=0.1)
+    approx_cost = st.slider("Approx Cost for Two People", min_value=0.0, max_value=3000.0, step=0.1)
     location = st.selectbox("Location of the Restaurant", ['Banashankari', 'Bannerghatta Road', 'Basavanagudi', 'Bellandur',
                               'Brigade Road', 'Brookefield', 'BTM', 'Church Street',
                               'Electronic City', 'Frazer Town', 'HSR', 'Indiranagar',

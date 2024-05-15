@@ -51,7 +51,7 @@ Python, Pandas, Numpy, Matplotlib, Scikit-learn, Streamlit, Git
 ├── Introduction.py
 ├── README.md
 ├── model.pkl
-├── restaurant model.ipynb
+├── Restaurant Rating Prediction.ipynb
 └── requirements.txt
 ```
 

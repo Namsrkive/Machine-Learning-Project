@@ -89,20 +89,6 @@ for i in cols:
 fig = px.bar(idf,x="Type",y="Count",color="Cuisine")
 st.plotly_chart(fig)
 
-#Plot showing the no of varieties served at restaurants
-st.subheader('Plot showing relationship between no of varieties and no of best sellers')
-
-inter=df.groupby(['No_of_Best_Sellers', 'No_of_Varieties'])[["Menu"]].count()
-inter.rename(columns={"Menu":"Count"},inplace=True)
-inter.reset_index(inplace=True)
-fig = px.bar(inter,x="No_of_Varieties",y="Count",color="No_of_Best_Sellers",barmode="group")
-st.plotly_chart(fig)
-
-#boxplot showing price for different type,further categorized by their rating
-st.subheader("Plot showing relationship between price and rating for different Restaurant type")
-fig=px.box(df,x="Type",y="Cost_Per_Person",color="Category")
-st.plotly_chart(fig)
-
 #Most Popular Cuisine Varieties in City's Restaurant
 
 st.subheader("Most Popular Cuisine Varieties in City's Restaurant")
@@ -170,20 +156,4 @@ for i in sel:
 fig = px.bar(x=idf["Cuisine_Type"], y=idf["Count"], color=idf["Category"],barmode="group")
 st.plotly_chart(fig)
 
-#Plot comparing pricing and quality of Cuisine, plus displaying best rated restaurant
-st.subheader("Best Restaurant for a Cuisine Type")
-Cuisine=st.selectbox("Cuisine",col,index=53)
 
-col1,col2=st.columns([2,1],gap="medium")
-with col1:
-    inter=df[(df[Cuisine]==1)]
-    inter=inter.groupby(["Price_Category","Category"])[["Menu"]].count()
-    inter=inter.reset_index()
-    inter.rename(columns={"Menu":"Count"},inplace=True)
-    fig = px.bar(inter,x="Price_Category", y="Count", color="Category",barmode="group")
-    st.plotly_chart(fig,use_container_width=True)
-with col2:
-    inter=df[df[Cuisine]==1]
-    ser=inter.groupby('Name')[['Rating']].max()
-    sol=ser.sort_values(by='Rating',ascending=False).head(10)
-    st.write(sol,use_container_width=True)

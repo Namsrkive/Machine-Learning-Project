@@ -33,7 +33,6 @@ def main():
                               'Malleshwaram', 'Marathahalli', 'MG Road', 'New BEL Road',
                               'Old Airport Road', 'Rajajinagar', 'Residency Road',
                               'Sarjapur Road', 'Whitefield'])
-    #rest_type = st.multiselect("Restaurant Type", [])
     cuisines = st.multiselect("Cuisines", ['Afghani', 'African', 'American', 'Andhra', 'Arabian', 'Asian',
                                                 'Assamese', 'Awadhi', 'BBQ', 'Bakery', 'Belgian', 'Bengali', 'Beverages',
                                                 'Bihari', 'Biryani', 'Bohri', 'British', 'Burmese', 'Cantonese', 'Chettinad',
